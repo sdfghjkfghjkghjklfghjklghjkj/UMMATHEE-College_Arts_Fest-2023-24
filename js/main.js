@@ -121,6 +121,35 @@
         loop: true,
     });
 
-    
+    (function ($) {
+    "use strict";
+
+    // ... (other code)
+
+    // Close the navbar when a link is clicked
+    $(".navbar-nav a").on('click', function (event) {
+        if (this.hash !== "") {
+            event.preventDefault();
+
+            // Close the navbar if it's open
+            if ($('.navbar-collapse').hasClass('show')) {
+                $('.navbar-toggler').click(); // Simulate a click on the navbar toggle button
+            }
+
+            // Scroll to the target section
+            $('html, body').animate({
+                scrollTop: $(this.hash).offset().top - 45
+            }, 1500, 'easeInOutExpo');
+
+            if ($(this).parents('.navbar-nav').length) {
+                $('.navbar-nav .active').removeClass('active');
+                $(this).closest('a').addClass('active');
+            }
+        }
+    });
+
+    // ... (rest of your code)
+
 })(jQuery);
+
 
