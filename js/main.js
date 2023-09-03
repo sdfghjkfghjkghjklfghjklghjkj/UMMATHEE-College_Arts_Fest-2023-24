@@ -121,7 +121,9 @@
         loop: true,
     });
 
-    (function ($) {
+    
+})(jQuery);
+(function ($) {
     "use strict";
 
     // ... (other code)
@@ -151,5 +153,4 @@
     // ... (rest of your code)
 
 })(jQuery);
-
 
